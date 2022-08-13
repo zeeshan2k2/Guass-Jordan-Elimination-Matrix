@@ -1,11 +1,13 @@
-#python program for gauss-jordan method in a 3*3 matrix
-#function to print list in a matrix form
+# python program for gauss-jordan method in a 3*3 matrix
+# function to print list in a matrix form
 def printmatrix():
     for i in matrix:
         for j in i:
-            print(j, end=", ")
+            print(j, end="  ")
         print()
-#function to solve the pivot column
+
+
+# function to solve the pivot column
 def pivotelement():
     rows = int(input("Enter the number of rows:"))
     rows -= 1
@@ -13,7 +15,9 @@ def pivotelement():
     colm -= 1
     # for first row pivot element
     pivot_element = matrix[rows][colm]
+    print()
     print(pivot_element, "is pivot element")
+    print()
     # divide pivot element by pivot row
     for i in range(len(matrix)):
         matrix[rows][i] = matrix[rows][i] / pivot_element
@@ -24,20 +28,22 @@ def pivotelement():
             make_zero = matrix[row][colm]
             for col in range(len(matrix)):
                 matrix[row][col] = matrix[row][col] - make_zero * matrix[rows][col]
-#row number 1
-list1=[]
+
+
+# row number 1
+list1 = []
 print("Enter numbers for first row")
 for i in range(3):
     data = int(input())
     list1.append(data)
-#row number 2
-list2=[]
+# row number 2
+list2 = []
 print("Enter numbers for second row")
 for i in range(3):
     data = int(input())
     list2.append(data)
-#row number 3
-list3=[]
+# row number 3
+list3 = []
 print("Enter numbers for third row")
 for i in range(3):
     data = int(input())
@@ -48,6 +54,9 @@ matrix_error = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 if matrix == matrix_error:
     print("This matrix is not possible")
 else:
+    print()
+    printmatrix()
+    print()
     # for first pivot element
     print("For first pivot element enter the values")
     pivotelement()
