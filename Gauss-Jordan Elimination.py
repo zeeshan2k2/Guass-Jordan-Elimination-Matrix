@@ -95,15 +95,25 @@ if matrix == matrix_error:
 
 elif column_number == 2 and row_number == 2:
     no_of_pivot_element()
+    print()
+    print("This is the final matrix.")
 
 elif column_number == 3 and row_number == 3:
     no_of_pivot_element()
+    print()
+    print("This is the final matrix.")
 
 elif column_number == 4 and row_number == 4:
     no_of_pivot_element()
+    print()
+    print("This is the final matrix.")
 
 elif column_number == 5 and row_number == 5:
     no_of_pivot_element()
+    print()
+    print("This is the final matrix.")
 
 elif column_number == 6 and row_number == 6:
     no_of_pivot_element()
+    print()
+    print("This is the final matrix.")
