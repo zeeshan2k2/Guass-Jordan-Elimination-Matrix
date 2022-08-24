@@ -1,10 +1,10 @@
-# python program for gauss-jordan method in a 3*3 matrix
+# python program for gauss-jordan elimination method in a matrix(2*2 to 6*6)
 # function to print list in a matrix form
 def printmatrix():
     for i in matrix:
         for j in i:
             # if you want more or less numbers after decimal point to adjust %.nf accordingly where n is the number
-            # of units
+            # of units after decimal points
             print("%.1f" % j, end="  ")
         print()
 
