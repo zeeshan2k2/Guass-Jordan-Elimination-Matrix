@@ -1,6 +1,7 @@
 # python program for gauss-jordan elimination method in a matrix(2*2 to 6*6)
 # function to print list in a matrix form
 def printmatrix():
+    print("---------------------------")
     for i in matrix:
         for j in i:
             if j == -0: # this condition is used to change -0 to 0s
@@ -11,6 +12,7 @@ def printmatrix():
             # of units after decimal points
             print("%.1f" % j, end="  ")
         print()
+    print("---------------------------")
 
 
 # function to solve the pivot column
