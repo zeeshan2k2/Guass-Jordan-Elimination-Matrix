@@ -3,6 +3,10 @@
 def printmatrix():
     for i in matrix:
         for j in i:
+            if j == -0: # this condition is used to change -0 to 0s
+                j = 0
+            else:
+                j = j
             # if you want more or less numbers after decimal point to adjust %.nf accordingly where n is the number
             # of units after decimal points
             print("%.1f" % j, end="  ")
@@ -21,14 +25,14 @@ def pivotelement():
     print("%.1f" % pivot_element, "is pivot element")
     print()
     # divide pivot element by pivot row
-    for i in range(len(matrix)):
+    for i in range(len(matrix[rows])):
         matrix[rows][i] = matrix[rows][i] / pivot_element
     for row in range(len(matrix)):
         if row == rows:
             continue
         else:
             make_zero = matrix[row][colm]
-            for col in range(len(matrix)):
+            for col in range(len(matrix[colm])):
                 matrix[row][col] = matrix[row][col] - make_zero * matrix[rows][col]
 
 
@@ -36,13 +40,6 @@ def pivotelement():
 def solve_pivotelement():
     print()
     pivotelement()
-    # changing -0 to 0
-    for i in range(len(matrix)):
-        for j in range(len(matrix)):
-            if matrix[i][j] == -0:
-                matrix[i][j] = 0
-            else:
-                continue
     printmatrix()
     print()
 
@@ -52,11 +49,35 @@ def no_of_pivot_element():
     print()
     printmatrix()
     print()
-    for i in range(row_number):
-        number = ["first", "second", "third", "fourth", "fifth", "sixth"]
-        n = i
-        print("For", number[n], "pivot element enter the values of row and column")
-        solve_pivotelement()
+
+    #if row number is equal column number
+    if row_number == column_number:
+        for i in range(row_number-1):
+            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
+            n = i
+            print("For", number[n], "pivot element enter the values of row and column")
+            solve_pivotelement()
+        print("This is the final Matrix.")
+
+    #if row number is smaller than row number
+    elif row_number < column_number:
+        for i in range(row_number):
+            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
+            n = i
+            print("For", number[n], "pivot element enter the values of row and column")
+            solve_pivotelement()
+        print("This is the final Matrix.")
+
+    #if row number is greater than column number
+    elif row_number > column_number:
+        for i in range(column_number-1):
+            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
+            n = i
+            print("For", number[n], "pivot element enter the values of row and column")
+            solve_pivotelement()
+        print("This is the final Matrix.")
+
+
 
 # taking input for rows and column
 print("What type of matrix do you want to solve")
@@ -64,16 +85,9 @@ row_number = int(input("rows : "))
 print(row_number)
 column_number = int(input("columns : "))
 print(column_number)
+
 # setting some pre-conditions
-if column_number != row_number:
-    print("Sorry! cannot solve this matrix the number of rows and column must be equal. This program only supports "
-          "matrices (2*2 to 6*6).")
-    quit()
-elif column_number > 6 and row_number > 6:
-    print("Sorry! cannot solve this matrix the number of rows and column must be equal. This program only supports "
-          "matrices (2*2 to 6*6).")
-    quit()
-elif column_number <= 1 and row_number <= 1:
+if column_number < 2 or row_number < 2:
     print("This matrix is not possible")
     quit()
 
@@ -88,32 +102,12 @@ while n != row_number:
         data = int(input())
         matrix[n][i] = data
     n = n + 1
+
 # This matrix is not solvable i.e gives an error
 matrix_error = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 if matrix == matrix_error:
     print("This matrix is not possible")
-
-elif column_number == 2 and row_number == 2:
+else:
     no_of_pivot_element()
-    print()
-    print("This is the final matrix.")
 
-elif column_number == 3 and row_number == 3:
-    no_of_pivot_element()
-    print()
-    print("This is the final matrix.")
 
-elif column_number == 4 and row_number == 4:
-    no_of_pivot_element()
-    print()
-    print("This is the final matrix.")
-
-elif column_number == 5 and row_number == 5:
-    no_of_pivot_element()
-    print()
-    print("This is the final matrix.")
-
-elif column_number == 6 and row_number == 6:
-    no_of_pivot_element()
-    print()
-    print("This is the final matrix.")
