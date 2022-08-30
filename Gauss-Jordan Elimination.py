@@ -105,11 +105,5 @@ while n != row_number:
         matrix[n][i] = data
     n = n + 1
 
-# This matrix is not solvable i.e gives an error
-matrix_error = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-if matrix == matrix_error:
-    print("This matrix is not possible")
-else:
-    no_of_pivot_element()
-
-
+#using function that tells how to solve a matrix in certain given conditions
+no_of_pivot_element()
