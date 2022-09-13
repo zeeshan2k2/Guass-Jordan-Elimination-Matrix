@@ -6,11 +6,16 @@ def printmatrix():
         for j in i:
             if j == -0: # this condition is used to change -0 to 0s
                 j = 0
-            else:
-                j = j
-            # if you want more or less numbers after decimal point to adjust %.nf accordingly where n is the number
-            # of units after decimal points
-            print("%.1f" % j, end="  ")
+            #if the number is whole number in matrix it prints it without printing any zeros
+            # after decimal point
+            elif j % 1 == 0:
+                j = "%.0f" % j
+            # if the number is not whole number in matrix it prints two number after decimal point
+            # i.e for 2.346446 = 2.34 you can change it by increasing or decreasing number of n in
+            #"%.nf" % j where n will be the numbers after decimal point
+            elif j % 1 != 0:
+                j = "%.2f" % j
+            print(j, end="  ")
         print()
     print("---------------------------")
 
