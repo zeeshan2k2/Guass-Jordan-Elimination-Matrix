@@ -1,10 +1,10 @@
-# python program for gauss-jordan elimination method in a matrix(2*2 to 6*6)
+# python program for gauss-jordan elimination method in a matrix.
 # function to print list in a matrix form
 def printmatrix():
     print("---------------------------")
     for i in matrix:
         for j in i:
-            if j == -0: # this condition is used to change -0 to 0s
+            if j == -0: # this condition is used to change -0 to 0.
                 j = 0
             #if the number is whole number in matrix it prints it without printing any zeros
             # after decimal point
