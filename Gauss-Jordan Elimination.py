@@ -1,18 +1,21 @@
 # python program for gauss-jordan elimination method in a matrix.
 # function to print list in a matrix form
+from num2words import num2words
+
+
 def printmatrix():
     print("---------------------------")
     for i in matrix:
         for j in i:
-            if j == -0: # this condition is used to change -0 to 0.
+            if j == -0:  # this condition is used to change -0 to 0.
                 j = 0
-            #if the number is whole number in matrix it prints it without printing any zeros
+            # if the number is whole number in matrix it prints it without printing any zeros
             # after decimal point
             elif j % 1 == 0:
                 j = "%.0f" % j
             # if the number is not whole number in matrix it prints two number after decimal point
-            # i.e for 2.346446 = 2.34 you can change it by increasing or decreasing number of n in
-            #"%.nf" % j where n will be the numbers after decimal point
+            # i.e. for 2.346446 = 2.34 you can change it by increasing or decreasing number of n in
+            # "%.nf" % j where n will be the numbers after decimal point
             elif j % 1 != 0:
                 j = "%.2f" % j
             print(j, end="  ")
@@ -57,33 +60,32 @@ def no_of_pivot_element():
     printmatrix()
     print()
 
-    #if row number is equal column number
+    # if row number is equal column number
     if row_number == column_number:
-        for i in range(row_number-1):
-            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
-            n = i
-            print("For", number[n], "pivot element enter the values of row and column")
+        for i in range(row_number - 1):
+            # number = ["first", "second", "third", "fourth", "fifth", "sixth", "seventh", "eight", "ninth", "tenth"]
+            num = i
+            print("For", (num2words(num+1, to='ordinal_num')), "pivot element enter the values of row and column")
             solve_pivotelement()
         print("This is the final Matrix.")
 
-    #if row number is smaller than row number
+    # if row number is smaller than row number
     elif row_number < column_number:
         for i in range(row_number):
-            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
-            n = i
-            print("For", number[n], "pivot element enter the values of row and column")
+            # number = ["first", "second", "third", "fourth", "fifth", "sixth"]
+            num = i
+            print("For", (num2words(num+1, to='ordinal_num')), "pivot element enter the values of row and column")
             solve_pivotelement()
         print("This is the final Matrix.")
 
-    #if row number is greater than column number
+    # if row number is greater than column number
     elif row_number > column_number:
-        for i in range(column_number-1):
-            number = ["first", "second", "third", "fourth", "fifth", "sixth"]
-            n = i
-            print("For", number[n], "pivot element enter the values of row and column")
+        for i in range(column_number - 1):
+            # number = ["first", "second", "third", "fourth", "fifth", "sixth"]
+            num = i
+            print("For", (num2words(num+1, to='ordinal_num')), "pivot element enter the values of row and column")
             solve_pivotelement()
         print("This is the final Matrix.")
-
 
 
 # taking input for rows and column
@@ -104,11 +106,11 @@ matrix = [[0 for i in range(column_number)] for x in range(row_number)]
 while n != row_number:
     number = ["first", "second", "third", "fourth", "fifth", "sixth"]
     print()
-    print("Enter numbers for", number[n], "row")
+    print("Enter numbers for", (num2words(n+1, to='ordinal_num')), "row")
     for i in range(column_number):
         data = int(input())
         matrix[n][i] = data
     n = n + 1
 
-#using function that tells how to solve a matrix in certain given conditions
+# using function that tells how to solve a matrix in certain given conditions
 no_of_pivot_element()
