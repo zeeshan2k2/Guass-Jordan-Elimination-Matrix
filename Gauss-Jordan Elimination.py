@@ -1,8 +1,8 @@
 # python program for gauss-jordan elimination method in a matrix.
-# function to print list in a matrix form
+
 from num2words import num2words
 
-
+# function to print list in a matrix form
 def printmatrix():
     print("---------------------------")
     for i in matrix:
